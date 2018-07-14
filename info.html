@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>韶关一建质安巡检系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">		
+		<link href="css/mui.min.css" rel="stylesheet"/>    
+		
+		<style>
+			p {
+				text-indent: 22px;
+				padding: 5px 8px;
+			}
+			
+			html,
+			body,
+			.mui-content {
+				
+			}			
+			h4 {
+				margin-left: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">关于</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<h4 style="margin-top:10px;">韶关一建质安巡检系统</h4>
+				<p>
+					《韶关一建质安巡检系统》，以总部、分公司和项目部质安检查人员为中心、通过手机工作界面，对草稿箱、整改中、逾期、延期、未完成、已完成等各阶段隐患整改记录实施分类管理，实现对项目现场质安隐患问题整改、回复、批复等关键环节控制，满足集团公司所属各项目质安巡检量化评价以及项目质安管理过程的监控和追溯管理的需要。
+				</p>
+				
+				<h4>新手指南</h4>
+				<p>
+					<!--请参照<a href="http://39.108.225.40:8081/sgajxt/韶关一建巡检系统用户手册.docx" download="text.docx">《韶关一建巡检系统用户手册》</a>进行操作！-->
+					请参照<a id="download">《韶关一建巡检系统用户手册》</a>进行操作！
+				</p>				
+				<h4>版本介绍</h4>
+				<p>当前版本为2018.03.05.26，可到<a href="#">韶关一建公司官网</a>上获取最新版本。</p>
+				<h4>APP下载二维码</h4><br />
+				<div style="text-align: center; ">
+				   <img src="images/SG.png" alt="APP下载" style="margin: 0 auto;" />
+				</div>
+			</div>			 
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/service.js" ></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			//处理点击事件，需要打开原生浏览器
+			mui('body').on('tap', 'a', function(e) {
+				var href = this.getAttribute('href');
+				if (href) {
+					if (window.plus) {
+						plus.runtime.openURL(href);
+					} else { 
+						location.href = href; 
+					}
+				}
+			});		
+				document.getElementById("download").addEventListener('tap',function(){
+					 plus.runtime.openURL(urlx+'sgyjyhsc.docx');
+				});
+			
+		</script>
+		<!--<script src="js/setPullToRefresh.js" ></script>-->
+	</body>
+
+</html>
