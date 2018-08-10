@@ -80,8 +80,9 @@
 				var self = plus.webview.currentWebview();
 				var mobile = self.mobile;
 				var flag = self.flag;
+				var flag1 = self.flag1;
 				var title = document.getElementsByClassName("mui-title");
-				title[0].innerHTML = flag +"整改中待办整改"
+				title[0].innerHTML = flag +"整改中待办整改"+"--"+flag1;
 				/*搜索框*/
 				 var myPopover = document.getElementById("my_popover");
 				 myPopover.addEventListener('tap',function(){
@@ -199,11 +200,12 @@
 					
 				};
 				//未查询前异步获取数据 --整改
-				mui.ajax(url+'my_plus/my_dbzg.php',{
+				mui.ajax(url+'my_plus/my_dbzg_middle.php',{
 					data:{
 						mobile:mobile,
 						flag:"zhneggai",
-						company: flag
+						company: flag,
+						flag1:flag1
 					},
 					dataType:'json',
 					type:'POST', 

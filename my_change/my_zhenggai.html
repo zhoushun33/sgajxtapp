@@ -185,8 +185,8 @@
 							zg.addEventListener('tap',function() {
 //						alert('111');
 						mui.openWindow({
-							url: 'my_dbzg.html', 
-							id: 'my_dbzg',
+							url: 'my_zhenggai_SQ.html', 
+							id: 'my_zhenggai_SQ',
 							styles: { 
 								hardwareAccelerated:false
 							}, 
@@ -207,8 +207,8 @@
 					   yq.addEventListener('tap',function() {
 //						alert('111');
 						mui.openWindow({
-							url: 'my_dbzg_yq.html', 
-							id: 'my_dbzg_yq',
+							url: 'my_zhenggai_yq_SQ.html', 
+							id: 'my_zhenggai_yq_SQ',
 							styles: { 
 								hardwareAccelerated:false
 							}, 
@@ -230,8 +230,8 @@
 					if(fg!=null){
 					fg.addEventListener('tap',function() {
 						mui.openWindow({
-							url: 'my_dbzg.html', 
-							id: 'my_dbzg',
+							url: 'my_zhenggai_SQ.html', 
+							id: 'my_zhenggai_SQ',
 							styles: { 
 								hardwareAccelerated:false
 							}, 
@@ -251,8 +251,8 @@
 					});
 					fgyq.addEventListener('tap',function() {
 						mui.openWindow({
-							url: 'my_dbzg_yq.html', 
-							id: 'my_dbzg',
+							url: 'my_zhenggai_yq_SQ.html', 
+							id: 'my_zhenggai_yq_SQ',
 							styles: { 
 								hardwareAccelerated:false
 							}, 
@@ -274,8 +274,8 @@
 					if(xm!=null){
 					xm.addEventListener('tap',function() {
 						mui.openWindow({
-							url: 'my_dbzg.html', 
-							id: 'my_dbzg',
+							url: 'my_zhenggai_SQ.html', 
+							id: 'my_zhenggai_SQ',
 							styles: { 
 								hardwareAccelerated:false
 							}, 
@@ -444,15 +444,16 @@
 				//点击查询按钮监听
 				count.addEventListener('tap', function() {
 					mui.openWindow({
-						url: 'my_dbzg_1.html',
-						id: 'my_dbzg_1',
+						url: 'my_zhenggai_fgs.html',
+						id: 'my_zhenggai_fgs',
 						styles: {
 							hardwareAccelerated: false
 						},
 						extras: {
 							
 							mobile:mobile,
-							section:section.value
+							section:section.value,
+							lb:"zhenggai"
 						},
 						show: {
 							autoShow: true, //页面loaded事件发生后自动显示
@@ -466,15 +467,16 @@
 				})
 				count1.addEventListener('tap', function() {
 					mui.openWindow({
-						url: 'my_yq_dbzg_1.html',
-						id: 'my_yq_dbzg_1',
+						url: 'my_zhenggai_fgs.html',
+						id: 'my_zhenggai_fgs',
 						styles: {
 							hardwareAccelerated: false
 						},
 						extras: {
 							
 							mobile:mobile,
-							section:section.value
+							section:section.value,
+							lb:"yuqi"
 						},
 						show: {
 							autoShow: true, //页面loaded事件发生后自动显示

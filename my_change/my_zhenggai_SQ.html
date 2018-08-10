@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>韶关一建项目巡检系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">		
+		<link rel="stylesheet" href="../css/mui.min.css">	
+		<link rel="stylesheet" href="../css/my_css.css">
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">待办整改</h1>
+		</header>
+		<div class="mui-content">
+			<div id="sq">
+				<ul id="my_list" class="mui-table-view mui-grid-view mui-grid-9 my_list">
+							
+				</ul>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/service.js" ></script>
+		<script type="text/javascript">
+			var sum = new Array(0,0);
+			mui.plusReady(function(){
+				//接收传值
+				var self = plus.webview.currentWebview();
+				var mobile = self.mobile;
+				var flag = self.flag;
+				var company = flag;
+				var title = document.getElementsByClassName("mui-title");
+				title[0].innerHTML = flag +"整改中待办整改"
+				var list = document.getElementById("my_list");
+				function menu(){
+				    list.innerHTML = '<li  class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><span class="mui-badge mui-badge-danger">'+sum[0]+'</span><a id="security" ><span class="mui-icon mui-icon-navigate"></span><div class="mui-media-body">安全</div></a></li>  <li  class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><span class="mui-badge mui-badge-danger">'+sum[1]+'</span><a id="quality" ><span class="mui-icon mui-icon-navigate"></span><div class="mui-media-body">质量</div></a></li>';
+					var security = document.getElementById("security");
+					var quality = document.getElementById("quality");
+					security.addEventListener("tap",function(){
+						mui.openWindow({
+							url: 'my_dbzg.html', 
+							id: 'my_dbzg',
+							styles: { 
+								hardwareAccelerated:false
+							}, 
+							extras:{
+								mobile:mobile,
+								flag: company,
+								flag1:"安全"
+							}, 
+							show:{ 
+								autoShow:true,//页面loaded事件发生后自动显示
+								aniShow:'slide-in-right',//页面显示动画
+								duration:'100'//页面动画持续时间
+							},
+							waiting:{
+								autoShow:false,//自动显示等待框
+							},
+						})
+					});
+					quality.addEventListener('tap',function(){
+						mui.openWindow({
+							url: 'my_dbzg.html', 
+							id: 'my_dbzg',
+							styles: { 
+								hardwareAccelerated:false
+							}, 
+							extras:{
+								mobile:mobile,
+								flag: company,
+								flag1:"质量"
+							}, 
+							show:{ 
+								autoShow:true,//页面loaded事件发生后自动显示
+								aniShow:'slide-in-right',//页面显示动画
+								duration:'100'//页面动画持续时间
+							},
+							waiting:{
+								autoShow:false,//自动显示等待框
+							},
+						})
+					});
+				}
+				
+				
+				mui.ajax(url+'my_plus/my_dbzg_middle.php',{
+					data:{
+						mobile:mobile,
+						flag:"zhneggai", 
+						company:company,
+						flag1:"安全"
+					},
+					dataType:'json',
+					type:'POST', 
+					timeout:10000,
+					success:function(data){
+                     	sum[0]=data.length-1;
+                    	menu(sum[0]);
+//						alert(data); 
+					},
+					error:function(xhr,type,errorThrown){
+						alert('ajax错误'+type+'---'+errorThrown);
+					}
+				});
+				mui.ajax(url+'my_plus/my_dbzg_middle.php',{
+					data:{
+						mobile:mobile,
+						flag:"zhneggai", 
+						company:company,
+						flag1:"质量"
+					},
+					dataType:'json',
+					type:'POST', 
+					timeout:10000,
+					success:function(data){
+                     	sum[1]=data.length-1;
+                    	menu(sum[1]);
+//						alert(data); 
+					},
+					error:function(xhr,type,errorThrown){
+						alert('ajax错误'+type+'---'+errorThrown);
+					}
+				});
+				menu(sum[0],sum[1]);
+			});
+		</script>
+	</body>
+</html>

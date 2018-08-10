@@ -43,14 +43,14 @@
 		</header>
 		<div class="mui-content">
 			<div id="item1" class="mui-control-content mui-active">
-				<div id="scroll" class="mui-scroll-wrapper">
+				<!--<div id="scroll" class="mui-scroll-wrapper">-->
 					<div class="mui-scroll">
 						<div id="dbzgGcmc" class="mui-content">
 						</div>			
 					</div>
 				<!--<div class="mui-content">
 	        </div>		-->
-		</div>
+		<!--</div>-->
 		<!--整改 -->
 		
 		<script src="../js/mui.min.js"></script>
@@ -80,8 +80,9 @@
 				var self = plus.webview.currentWebview();
 				var mobile = self.mobile;
 				var flag = self.flag;
+				var flag1 = self.flag1;
 				var title = document.getElementsByClassName("mui-title");
-				title[0].innerHTML = flag +"逾期待办整改"
+				title[0].innerHTML = flag +"逾期待办整改"+"--"+flag1;
 				/*搜索框*/
 				 var myPopover = document.getElementById("my_popover");
 				 myPopover.addEventListener('tap',function(){
@@ -202,11 +203,12 @@
 					
 				};
 				//未查询前异步获取数据 --逾期
-				mui.ajax(url+'my_plus/my_yq_dbzg.php',{
+				mui.ajax(url+'my_plus/my_dbzg_yq_middle.php',{
 					data:{
 						mobile:mobile,
 						flag:"yuqi", 
-						company: flag
+						company: flag,
+						flag1:flag1
 					},
 					dataType:'json',
 					type:'POST', 

@@ -78,10 +78,12 @@
 				//接收传值
 				var self = plus.webview.currentWebview();
 				var mobile = self.mobile;
+				var flag1 = self.flag1;
+				var lb = self.lb;
 				flag = '分公司';
 				var section = self.section;
 				var title = document.getElementsByClassName("mui-title");
-				title[0].innerHTML = flag +"整改待办整改"
+				title[0].innerHTML = flag +"整改待办整改"+"--"+flag1;
 				/*搜索框*/
 				 
 				
@@ -144,12 +146,13 @@
 					
 				};
 				//未查询前异步获取数据 --整改
-				mui.ajax(url+'my_plus/my_dbzg_1.php',{
+				mui.ajax(url+'my_plus/my_dbzg_fgs_middle.php',{
 //					alert(flag);
 					data:{
 						mobile:mobile,
-						flag:"zhneggai",
+						flag:lb,
 						section:section,
+						flag1:flag1,
 						company: flag
 					},
 					dataType:'json',
